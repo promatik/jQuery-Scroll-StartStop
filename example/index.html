@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<head>
+	<title>ScrollStop &amp; ScrollStart special events for jQuery by Toni Almeida, based in the work of James Padolsey</title>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400+600' rel='stylesheet' type='text/css'>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<style type="text/css">
+		body {
+			font-family: 'Open Sans', sans-serif;
+			font-size: 1.1em;
+			color: #222;
+			margin: 0;
+			background: #FFF;
+		}
+		.container {
+			width: 1024px;
+			margin: auto;
+			background: #DDD;
+			padding: 40px;
+			box-shadow: 0 0 5px rgba(0,0,0,0.2);
+			-webkit-transition: color 0.5s ease; 
+			-mz-transition: color 0.5s ease; 
+			-o-transition: color 0.5s ease; 
+			-ms-transition: color 0.5s ease; 
+		}
+		.scrolling {
+			color: #5E848B;
+		}
+		#m {
+			position: fixed;
+			margin: 
+			line-height: 30px;
+			padding: 5px 20px;
+			background-color: black;
+			border: 1px solid #7FBAC5;
+			color: #7FBAC5;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div id="m">Scrolling!</div>
+		<h2>SCROLL THIS PAGE (JavaScript required to see demo in action!)</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tincidunt auctor massa. Nunc convallis ante vel libero consectetur, vel vestibulum lacus sodales. Integer vitae purus ut tellus dignissim ultricies. Praesent eros sem, ullamcorper placerat tempus id, egestas nec mauris. Donec vel laoreet magna, varius euismod lorem. Sed placerat lorem velit, euismod semper erat ullamcorper volutpat. Fusce nisl arcu, ornare quis libero nec, semper rhoncus tellus. Aliquam imperdiet facilisis molestie. Donec dui lacus, suscipit eget tortor quis, venenatis rhoncus orci. Sed in tortor mattis, egestas enim id, dapibus magna. Etiam vitae faucibus ligula. Nunc eget arcu et orci semper varius a in sapien. Donec iaculis tincidunt eros, a auctor urna ullamcorper rhoncus. Morbi volutpat facilisis massa a volutpat.</p>
+		<p>Nulla eu lectus sit amet nulla mattis gravida. Morbi at mattis neque, vel tincidunt arcu. Cras sollicitudin, elit in ultrices ullamcorper, dolor odio feugiat justo, ac posuere augue mi vel felis. Integer in risus ac sem pretium luctus at sit amet purus. Cras sodales dignissim erat a malesuada. Vivamus sed elementum tortor. Nullam viverra metus id mi sollicitudin, sed molestie erat vehicula. Integer cursus aliquet consectetur. Donec condimentum, nisi sed consectetur malesuada, felis orci mattis justo, ut viverra leo mi vel velit. Quisque nec interdum magna. Nunc tempus est et erat porttitor, eu fermentum libero semper.</p>
+		<p>Donec sit amet arcu eu lacus ornare commodo. Vestibulum enim ante, accumsan at magna at, tristique lobortis augue. Ut ut eleifend purus. Suspendisse egestas, odio quis suscipit egestas, odio orci sagittis mi, quis pulvinar nisi lectus condimentum ligula. Nam condimentum lacinia arcu nec porttitor. Ut ultrices sodales est ac imperdiet. Maecenas dolor metus, venenatis id libero a, pellentesque suscipit nunc. Donec elementum non eros vitae blandit. Etiam placerat nisi mauris, sit amet tempor dolor semper at. Aliquam cursus placerat ipsum a adipiscing. Nulla volutpat sed tortor sollicitudin laoreet. Vivamus non ornare nisl. Fusce id ligula ut leo elementum vulputate. Quisque lectus dui, hendrerit a neque in, rhoncus pretium diam.</p>
+		<p>Vestibulum sit amet elit ornare, consequat massa ac, suscipit leo. Quisque tincidunt laoreet fermentum. Integer diam mauris, elementum ac auctor id, dignissim nec magna. Integer adipiscing volutpat felis, vitae eleifend dui vulputate eget. Suspendisse laoreet tincidunt pulvinar. Mauris molestie tristique nibh, vel molestie neque tincidunt ac. Quisque a ante condimentum, volutpat nibh quis, imperdiet dui. Etiam fringilla rutrum nibh eu bibendum.</p>
+		<p>Pellentesque aliquet nulla eget lorem convallis facilisis auctor eu purus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut ultricies nisl nec lacus laoreet, eget dignissim urna luctus. Nulla dapibus vulputate adipiscing. Mauris ut sapien varius diam rhoncus aliquet ac et mauris. Vestibulum et porttitor dui. Quisque elementum, massa eget euismod ultricies, libero magna fringilla erat, sit amet tincidunt metus eros sed urna.</p>
+		<p>Nam semper dui quis egestas porta. Donec sollicitudin erat suscipit justo mattis, eu laoreet lacus luctus. Aliquam lobortis commodo ante non molestie. Donec gravida orci quis luctus dapibus. Etiam quam purus, aliquet at auctor at, elementum in arcu. In imperdiet, velit et commodo consequat, enim nibh convallis nulla, a aliquam nulla sem non quam. Nam euismod diam vel leo feugiat sagittis. In consequat mollis orci, sed vestibulum turpis consectetur vestibulum. Duis vitae dui vitae sapien egestas congue. Nullam sodales dapibus risus, vitae adipiscing eros. Suspendisse potenti. In ornare condimentum venenatis.</p>
+		<p>Vivamus vitae dui sit amet mauris egestas fermentum id ut nisl. In fringilla ante velit, quis pretium dui vulputate id. Pellentesque lacinia neque et massa bibendum varius vel sed lacus. Nam quis ante lectus. Nullam aliquet lacinia euismod. Nunc nisl tortor, euismod vel quam non, sodales placerat dui. Nulla facilisi. Fusce bibendum eu risus in vehicula. Duis at viverra sem. Sed semper euismod faucibus. Suspendisse potenti. Donec convallis augue et purus varius adipiscing. Phasellus nisi erat, pharetra eu varius non, molestie non metus. Sed quis sagittis mi, a consectetur est. Pellentesque placerat ut ligula tincidunt ultrices.</p>
+		<p>Vestibulum mollis, nunc eget pharetra mollis, risus nisi suscipit quam, sit amet molestie nisi diam et metus. Morbi rhoncus sem non leo sollicitudin lobortis. Duis ac auctor magna, at semper leo. Mauris quis fermentum augue. Fusce nec porttitor elit, vitae rutrum nisl. Nam vel sodales elit, a molestie turpis. Maecenas tempor sem a est pellentesque fringilla. Ut mauris sem, vehicula pulvinar metus in, porta placerat eros. Donec interdum mollis bibendum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec ut aliquet neque.</p>
+		<p>Sed euismod auctor augue, nec aliquet nulla rhoncus id. Quisque quis risus tempus erat tincidunt feugiat sit amet eget sapien. Suspendisse potenti. Aliquam erat volutpat. Pellentesque in neque erat. Aenean mollis quam suscipit lectus ornare, sed vulputate justo adipiscing. Duis nec faucibus velit. Nam volutpat mi nec sem tincidunt pretium.</p>
+		<p>Cras eu purus a diam consequat egestas quis ac felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tristique leo tellus, ut tristique enim molestie eu. Proin dapibus accumsan nunc, non molestie diam porttitor at. In tempus scelerisque lectus a malesuada. Aliquam sit amet arcu cursus, dictum nunc eget, vehicula elit. Sed viverra, ante eu pretium convallis, magna urna consequat sapien, a luctus nisi lectus et sapien. Nullam lacus lectus, tristique fermentum tellus ac, venenatis mattis nulla.</p>
+		<p>Quisque aliquet lectus ac vehicula molestie. Quisque ligula urna, posuere ut consectetur vitae, egestas eu neque. Sed pellentesque et massa malesuada tempor. Curabitur sed metus sed leo sodales sagittis. Nulla ornare tempus neque quis imperdiet. Duis faucibus, sem eu hendrerit adipiscing, turpis lacus dictum quam, sed malesuada arcu diam eget arcu. Aliquam erat volutpat. Cras eget pharetra enim. Praesent non ante leo. Quisque venenatis accumsan velit et hendrerit. Vestibulum semper libero nec condimentum sodales. Sed hendrerit convallis gravida.</p>
+		<p>Etiam auctor urna ut pellentesque sollicitudin. Nulla facilisi. Sed pellentesque lectus eget ante blandit, porttitor adipiscing urna venenatis. Etiam pellentesque, metus vitae accumsan condimentum, purus erat bibendum purus, vel luctus metus eros ac sapien. Cras mollis, leo at adipiscing rutrum, risus enim gravida orci, eget luctus neque elit sed justo. Aliquam eget leo eget massa auctor porta sit amet eu elit. Phasellus eget quam risus. Nulla fringilla in quam vel lobortis. Sed laoreet nisl vel enim facilisis faucibus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+		<p>Suspendisse consequat, metus sed adipiscing venenatis, elit erat vehicula nunc, ac imperdiet orci tortor nec ipsum. Maecenas adipiscing eros quis odio sodales placerat. Morbi leo nibh, suscipit a tristique vel, tristique ut lorem. Vestibulum tristique ante eget nulla aliquam, at adipiscing arcu vestibulum. Integer purus velit, vestibulum id justo non, congue porta turpis. Aenean auctor est mi, quis fermentum arcu fermentum nec. Nullam cursus nunc quis lectus malesuada, elementum lobortis ipsum porta. Etiam mi diam, venenatis quis pharetra at, pulvinar vitae augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce tincidunt tellus at diam tempus lobortis.</p>
+		<p>In eget nisl tellus. Etiam volutpat posuere magna id fringilla. Pellentesque feugiat nibh non condimentum placerat. Sed vel lacus vitae tellus ultrices pellentesque quis eget tortor. Nullam pharetra aliquam lorem, vitae adipiscing felis convallis quis. Sed quam tortor, rhoncus vitae sodales nec, elementum sed erat. Donec a auctor metus. Donec venenatis sodales venenatis. Quisque non pharetra ante, et dapibus nulla. Praesent rhoncus diam a ipsum aliquam, a ullamcorper elit mattis. Nunc venenatis libero id augue dapibus aliquet. Morbi tincidunt, dui quis ornare euismod, felis velit consequat orci, vitae fermentum lacus risus at tortor. Vivamus pretium hendrerit aliquam. Suspendisse tempus ipsum eget lorem vulputate, vitae tempus massa dapibus. Sed lobortis leo tempor nibh semper scelerisque. Suspendisse elementum turpis lectus, at dignissim augue viverra vel.</p>
+		<p>Mauris et tincidunt eros. Vestibulum molestie vitae odio ut fringilla. Aliquam dictum felis eu risus aliquet, ac vestibulum orci egestas. Vestibulum fringilla tellus arcu, in elementum dui vulputate pellentesque. Donec molestie nunc dui, vel placerat risus porttitor a. Donec quis accumsan felis. Quisque non lorem ut nunc accumsan blandit in non arcu. Proin nec enim semper, semper enim sed, condimentum sem. Maecenas egestas sodales aliquet. Curabitur ornare, massa vel rutrum mattis, nisl orci luctus justo, non tempus felis neque nec purus. Quisque laoreet molestie felis, eget dapibus lorem volutpat ac.</p>
+		<p>Quisque dapibus faucibus sem id ultricies. Suspendisse pellentesque sapien lacinia augue viverra blandit. Duis felis dui, egestas ac dapibus non, pharetra id lacus. Quisque nec felis nec nisi sodales laoreet a non purus. Morbi aliquet porta nisi ac porta. Fusce adipiscing, quam ut feugiat malesuada, lacus dui pulvinar ligula, non adipiscing enim quam ut neque. Duis venenatis lectus sit amet odio vulputate, et accumsan magna tincidunt.</p>
+		<p>In a quam mauris. In hac habitasse platea dictumst. Praesent porta scelerisque pellentesque. Duis sed enim egestas lectus blandit bibendum eget eu quam. Sed vitae tincidunt tortor, at hendrerit orci. Maecenas nec nulla dictum purus lacinia pellentesque. Suspendisse eu egestas metus. Proin rhoncus purus laoreet purus commodo auctor. Etiam ultrices magna sed tempus interdum. Pellentesque sed tincidunt diam. Sed sed vehicula quam. Vestibulum et dolor rhoncus, feugiat ligula sit amet, placerat sem. Praesent sed tellus dolor. Quisque mattis nisi vitae ultricies euismod.</p>
+		<p>Vivamus at ligula in orci pellentesque lobortis vel consectetur metus. Sed vestibulum orci nec tempor aliquet. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent facilisis placerat bibendum. Ut eu tortor eros. Sed vel purus dolor. Donec ut suscipit nibh, vitae suscipit lorem. Nunc tincidunt sapien euismod magna porttitor dapibus. Cras luctus luctus consectetur. Nulla lacinia semper diam, at consequat elit luctus non. Aenean vitae enim quam. Maecenas tincidunt quam mi, eu condimentum nisi luctus non. Quisque a mi ac nunc pellentesque porta. Nullam mi arcu, faucibus hendrerit euismod eget, laoreet quis enim.</p>
+	</div>
+	<script src="jquery-scroll-startstop.js"></script>
+	<script>
+		(function(){
+			$(window).on('scrollstart', function(){
+				$("body").addClass("scrolling");
+				$("#m").stop().fadeIn();
+			}).on('scrollstop', function(){
+				$("body").removeClass("scrolling");
+				$("#m").stop().fadeOut();
+			});
+		})();
+	</script>
+</body>
+</html>
